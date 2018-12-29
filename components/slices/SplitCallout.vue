@@ -4,11 +4,12 @@
       <div class="callout-image">
         <img :src="fields.callout_image.url"/>
       </div>
-      <callout-content
+      <callout-content class="callout-content"
         :title="$prismic.asHtml(fields.callout_title)"
         :content="$prismic.asHtml(fields.callout_content)"
         :link="fields.button_url"
-        :link_text="fields.button_label">
+        :link_text="fields.button_label"
+        :alignment="'left'">
       </callout-content>
     </section>
   </theme>
@@ -37,14 +38,14 @@
 
 <style scoped lang="scss">
   .split-callout {
-
     @media (min-width: $screen-sm) {
       display: flex;
       height: 32vw;
     }
   }
 
-  .callout-image {
+  .callout-image,
+  .callout-content {
     @media (min-width: $screen-sm) {
       width: 50%;
     }

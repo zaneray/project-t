@@ -53,14 +53,15 @@
   }
 
   .image-banner-picture {
-    z-index: $z-index-level-page;
+    z-index: $callout-bg-z-index;
     position: relative;
     display: block;
+    width: 100%;
   }
 
 
   .image-banner-content {
-    z-index: $z-index-level-page + 1;
+    z-index: $callout-content-z-index;
     position: absolute;
   }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="callout-content" :class="alignment">
     <div v-if="title" class="title" v-html="title"></div>
-    <div v-if="content" v-html="content"></div>
-    <div v-if="links">
+    <div v-if="content" class="content" v-html="content"></div>
+    <div v-if="links" class="links">
       <prismic-link
         class="callout-content-link"
         v-for="link in links"
@@ -40,26 +40,23 @@
 <style scoped lang="scss">
   .callout-content {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: $container-padding;
 
-    align-items: flex-start;
-    text-align: left;
-    padding: 3rem;
-    @media (min-width: $screen-sm) {
-      max-width: 50%;
-    }
 
-    &.center {
-      align-items: center;
-      text-align: center;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+
 
     &.left {
       align-items: flex-start;
+      text-align: left;
+      @media (min-width: $screen-sm) {
+        transform: translateX(0);
+      }
     }
 
     &.right {
@@ -68,8 +65,27 @@
       @media (min-width: $screen-sm) {
         right: 0;
         left: auto;
+        transform: translateX(0);
       }
     }
+  }
+
+
+  .title,
+  .content,
+  .links {
+    max-width: 540px;
+    width: 100%;
+    @media (min-width: $screen-sm) {
+      max-width: 50vw;
+      margin: 0 auto;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .callout-content-link {

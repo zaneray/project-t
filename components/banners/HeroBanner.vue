@@ -1,7 +1,7 @@
 <template>
   <section class="hero-banner">
     <theme :theme="'dark'">
-    <callout-content
+    <callout-content class="callout-content"
                 :title="$prismic.asHtml(title)"
                 :content="$prismic.asHtml(content)"
                 >
@@ -48,7 +48,14 @@
   .hero-banner {
     position: relative;
     width: 100%;
-    position: relative;
+    z-index: $callout-bg-z-index;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
 
     img {
       z-index: $z-index-level-page;

@@ -17,6 +17,9 @@ $z-index-level-super: $z-index-level-modal + $z-index-gap;
 $main-page-z-index: $z-index-level-page;
 $prismic-edit-z-index:$z-index-level-modal + 1;
 
+$callout-bg-z-index: $main-page-z-index;
+$callout-content-z-index: $callout-bg-z-index + 1;
+
 
   //Footer
 $footer-z-index: $z-index-level-footer;

@@ -1,56 +1,70 @@
 <template>
-
-  <section class="call-to-action" :style="{'background-color': fields.background_color}">
-    <prismic-link :link="fields.cta_link">
-      <span class="btn btn-primary">{{fields.cta_title}}</span>
-    </prismic-link>
-
-    <picture>
-      <source :srcset="fields.background_image.background_desktop.url"
-              media="(min-width: 800px)">
-      <img :src="fields.background_image.url">
-    </picture>
-  </section>
+  <theme :theme="fields.theme">
+    <section class="call-to-action">
+      <callout-content class="callout-content"
+                       :title="$prismic.asHtml(fields.cta_title)"
+                       :content="$prismic.asHtml(fields.cta_content)"
+                       :links="items"
+                       :link_text="$prismic.asText(fields.cta_title)"
+                       :alignment="'center'">
+      </callout-content>
+      <base-picture v-if="fields.background_image.url" class="call-to-action-image"
+        :mobileImg="fields.background_image.mobile.url"
+        :desktopImg="fields.background_image.url"
+        :altText="fields.background_image.alt ? fields.background_image.alt : $prismic.asText(fields.cta_title)">
+      </base-picture>
+    </section>
+  </theme>
 </template>
 
 <script>
+  import CalloutContent from "../utility/CalloutContent";
+  import Theme from "../utility/Theme";
+  import BasePicture from "../base/BasePicture";
+
   export default {
+    components: {
+      BasePicture,
+      Theme,
+      CalloutContent
+    },
     name: "call-to-action",
     data() {
       return {
         // title: "color-quote"
       }
     },
-    props: [
-      'fields'
-    ],
+    props: {
+      fields: Object,
+      items: Array
+    },
     mounted() {
       console.log('CTA Data', this.fields);
+      console.log('CTA Items', this.items);
     }
   }
 </script>
 
 <style scoped lang="scss">
   .call-to-action {
-    padding: 100px 0;
     text-align: center;
     position: relative;
+    overflow: hidden;
   }
 
-  picture {
+  .callout-content {
+    position: relative;
+    z-index: $callout-content-z-index;
+  }
+
+  .call-to-action-image {
     position: absolute;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     left: 0;
     top: 0;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: $z-index-level-page;
-    opacity: .8;
+    z-index: $callout-bg-z-index;
   }
 
 

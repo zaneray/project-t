@@ -27,28 +27,40 @@
 
 <style scoped lang="scss">
   header {
-    height: $header-height;
     padding: $margin-base 0;
     text-align: center;
-    background-color: $color-white;
+    position: absolute;
+    z-index: $header-z-index;
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+      height: $header-height;
+    }
+
   }
 
   .logo-link {
     width: 200px;
     display: block;
-    height: 36px;
+    margin: 0 auto;
+    @media (min-width: $screen-sm) {
+      margin: 0;
+    }
   }
 
   .masthead-content {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+
+
+    @media (min-width: $screen-sm) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   a {
-    color: $color-primary;
+    color: $color-white;
   }
 
   header.fixed {
@@ -58,6 +70,14 @@
     height: 30px;
   }
 
+
+
+  nav {
+    display: none;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+  }
 
   .navbar-item {
     display: inline-block;

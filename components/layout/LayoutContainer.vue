@@ -30,14 +30,14 @@
 
 <style scoped lang="scss">
     .container {
-        padding: 0 $gutter;
+        padding: 0 $container-padding;
         width: 100%;
-        max-width: $container-width;
+        // max-width: $container-width;
         margin: 0 auto;
 
-        &.desktop-spacing {
+       /* &.desktop-spacing {
             padding: 0 $gutter*2;
-        }
+        }*/
 
         &.content-width {
             max-width: $content-width;

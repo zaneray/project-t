@@ -98,6 +98,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  .wrapper {
+    width: 100%;
+  }
+
+
   .container {
     min-height: 100vh;
     display: flex;

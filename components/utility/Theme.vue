@@ -14,8 +14,7 @@
         validator: function (value) {
           return ['light', 'dark', 'primary'].indexOf(value) !== -1
         }
-      },
-
+      }
     }
   }
 </script>

@@ -1,23 +1,28 @@
 <template>
   <section class="hero-video">
-    <div class="callout-content">
-      <h1 class="title">
-        {{ title }}
-      </h1>
-      <p class="large">
-        {{ content }}
-      </p>
-    </div>
+    <theme :theme="'dark'">
+    <callout-content class="callout-content"
+      :title="$prismic.asHtml(title)"
+      :content="$prismic.asHtml(content)"
+    >
+    </callout-content>
     <video class="video-src" autoplay="autoplay"
            loop="loop" muted="muted"
            :poster="poster">
       <source :src="videoUrl" type="video/mp4">
     </video>
+    </theme>
   </section>
 </template>
 
 <script>
+  import CalloutContent from "../utility/CalloutContent";
+  import Theme from "../utility/Theme";
+
   export default {
+    components: {
+      Theme,
+      CalloutContent},
     name: "hero-video",
     data() {
       return {
@@ -32,24 +37,22 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .hero-video {
     position: relative;
     width: 100%;
+    z-index: $callout-bg-z-index;
   }
 
   .callout-content {
     position: absolute;
-    top: 50%;
-    left: 15%;
-    max-width: 500px;
-    color: #fff;
-    transform: translateY(-50%);
+    z-index: $callout-bg-z-index;
   }
 
   .video-src {
     width: 100%;
     height: 100%;
     display: block;
+    opacity: .85;
   }
 </style>
