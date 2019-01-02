@@ -58,15 +58,16 @@ module.exports = {
     '~plugins/mediaQueries'
   ],
 
+  resolve: {
+    extensions: ['*', '.js', '.vue', '.json'],
+  },
+
   /*
   ** Nuxt.js modules
   */
   modules: [
     ['nuxt-sass-resources-loader', '~assets/styles/variables/variables.scss'],
-    // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    // Doc: https://bootstrap-vue.js.org/docs/
-    //'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
     ['prismic-nuxt', {
       endpoint: 'https://vue-demo.cdn.prismic.io/api/v2',

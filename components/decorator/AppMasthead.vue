@@ -14,7 +14,8 @@
 </template>
 
 <script>
-  import LayoutContainer from "../layout/LayoutContainer";
+  import LayoutContainer from "../layout/LayoutContainer.vue";
+
   export default {
     name: 'AppMasthead',
     components: {LayoutContainer},
@@ -25,7 +26,9 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+  @import "../../assets/styles/global.scss";
+
   header {
     padding: $margin-base 0;
     text-align: center;
