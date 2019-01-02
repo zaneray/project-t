@@ -6,6 +6,7 @@
         <split-callout  v-else-if="slice.slice_type === 'split_callout'" :fields="slice.primary"></split-callout>
         <call-to-action v-else-if="slice.slice_type === 'call_to_action'" :fields="slice.primary"></call-to-action>
         <text-block v-else-if="slice.slice_type === 'text'" :fields="slice.primary"></text-block>
+      <related-content v-else-if="slice.slice_type === 'related_content'" :items="slice.items"></related-content>
     </div>
   </section>
 </template>
@@ -16,10 +17,12 @@
   import CallToAction from '../slices/CallToAction.vue';
   import TextBlock from '../slices/TextBlock.vue';
   import ImageBanner from "../slices/ImageBanner";
+  import RelatedContent from "../slices/RelatedContent";
 
   export default {
     name: "slice-loader",
     components: {
+      RelatedContent,
       ImageBanner,
       ColorQuote,
       SplitCallout,

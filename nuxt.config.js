@@ -76,6 +76,7 @@ module.exports = {
         if (doc.type === 'content_page') { return doc.uid === 'home-page' ? '/' : `/content/${doc.uid}` }
         if (doc.type === 'team_page') { return '/team' }
         if (doc.type === 'team_member') { return '/team/' + doc.uid }
+        if (doc.type === 'story') { return '/stories/' + doc.uid }
         return '/'
       }
     }]

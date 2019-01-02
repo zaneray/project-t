@@ -37,10 +37,6 @@
     props: {
       fields: Object,
       items: Array
-    },
-    mounted() {
-      console.log('CTA Data', this.fields);
-      console.log('CTA Items', this.items);
     }
   }
 </script>
