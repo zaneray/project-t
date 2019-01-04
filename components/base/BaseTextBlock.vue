@@ -1,8 +1,8 @@
 <template>
-  <theme :theme="fields.theme">
+  <theme :theme="theme">
     <section class="text-block">
       <layout-container content>
-        <div v-html="$prismic.asHtml(fields.text)" :class="['columns-'  + fields.layout, 'font-size-'  + fields.font_size]"></div>
+        <div v-html="$prismic.asHtml(text)" :class="['columns-'  + layout, 'font-size-'  + font_size]"></div>
       </layout-container>
     </section>
   </theme>
@@ -13,13 +13,19 @@
   import Theme from "../utility/Theme";
 
   export default {
-    name: "TextBlock",
+    name: "base-text-block",
     components: {
       Theme,
       LayoutContainer
     },
     props: {
       fields: {
+        type: Object
+      },
+      layout: {
+        type: String
+      },
+      text: {
         type: Object
       },
       font_size: {
@@ -68,6 +74,12 @@
     p {
       font-size: $font-size-medium;
     }
+  }
+
+  div[data-oembed-type='video'] {
+    margin-bottom: $margin-base;
+    width: 100%;
+    background: green;
   }
 
 </style>

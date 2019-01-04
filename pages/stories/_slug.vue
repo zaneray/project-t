@@ -8,23 +8,25 @@
       :mobileUrl="entry.hero_image.mobile.url"
       :imageAlt="entry.hero_image.alt">
     </hero-banner>
-
-    <layout-container content>
-      <router-link to="/stories" class="back-link">< Back</router-link>
-      {{entry.date}}
-      <div v-html="$prismic.asHtml(entry.content)"></div>
-    </layout-container>
+    <router-link to="/stories" class="back-link">< Back</router-link>
+    {{entry.date}}
+    <base-text-block
+      :theme="'light'"
+      :text="entry.content"
+    ></base-text-block>
   </prismic-preview>
 </template>
 
 <script>
   import LayoutContainer from "../../components/layout/LayoutContainer";
   import HeroBanner from "../../components/banners/HeroBanner";
+  import BaseTextBlock from "../../components/base/BaseTextBlock";
 
 
   export default {
     name: "StoryItem",
     components: {
+      BaseTextBlock,
       HeroBanner,
       LayoutContainer
     },
