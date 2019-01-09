@@ -1,6 +1,6 @@
 <template>
     <base-text-block
-      :text="fields.text"
+      :text="$prismic.asHtml(fields.text)"
       :theme="fields.theme"
       :font_size="fields.font_size"
     ></base-text-block>

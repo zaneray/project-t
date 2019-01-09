@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="component-padding">
     <h2>Related Stories</h2>
     <div class="related-content-wrapper">
-      <nuxt-link v-for="item in items" :key="item" class="related-content-item" :to="`/stories/${item.related_content.uid}`">
+      <nuxt-link v-for="(item, index) in items" :key="index" class="related-content-item" :to="`/stories/${item.related_content.uid}`">
         <div>item.related_content.slug</div>
       </nuxt-link>
     </div>

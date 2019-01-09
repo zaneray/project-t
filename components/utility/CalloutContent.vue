@@ -9,7 +9,7 @@
         :key="link.banner_link_label"
         :link="link.banner_link"
         >
-        <base-button
+        <base-button v-if="link.banner_link_label"
           :label="link.banner_link_label"
         ></base-button>
       </prismic-link>

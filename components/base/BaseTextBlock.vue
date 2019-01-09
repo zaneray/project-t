@@ -1,8 +1,8 @@
 <template>
   <theme :theme="theme">
-    <section class="text-block">
+    <section class="text-block component-padding">
       <layout-container content>
-        <div v-html="$prismic.asHtml(text)" :class="['columns-'  + layout, 'font-size-'  + font_size]"></div>
+        <div v-html="text" :class="['columns-'  + layout, 'font-size-'  + font_size]"></div>
       </layout-container>
     </section>
   </theme>
@@ -19,14 +19,16 @@
       LayoutContainer
     },
     props: {
-      fields: {
-        type: Object
-      },
       layout: {
-        type: String
+        type: String,
+        default: '1'
       },
       text: {
-        type: Object
+        type: String
+      },
+      theme: {
+        type: String,
+        default: 'light'
       },
       font_size: {
         type: String,
@@ -42,8 +44,7 @@
 
 <style scoped lang="scss">
   .text-block {
-    padding-top: $margin-large;
-    padding-bottom: $margin-large;
+
   }
 
   .columns-2 {
@@ -81,5 +82,6 @@
     width: 100%;
     background: green;
   }
+
 
 </style>

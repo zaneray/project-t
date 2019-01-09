@@ -8,12 +8,15 @@
       :mobileUrl="entry.hero_image.mobile.url"
       :imageAlt="entry.hero_image.alt">
     </hero-banner>
+    <layout-container content>
     <router-link to="/stories" class="back-link">< Back</router-link>
     {{entry.date}}
+    </layout-container>
     <base-text-block
       :theme="'light'"
-      :text="entry.content"
+      :text="$prismic.asHtml(entry.content)"
     ></base-text-block>
+    <slice-loader :slices="slices"></slice-loader>
   </prismic-preview>
 </template>
 
@@ -41,14 +44,16 @@
         return {
           document: document,
           documentId: document.id,
-          entry: document.data
+          entry: document.data,
+          slices: document.data.body
         }
       } catch (err) {
         error({statusCode: 404, message: `The page you are looking for does not exist. `, err: err})
       }
     },
     mounted() {
-      console.log('CTA Data', this.entry);
+      console.log('stories Data', this.entry);
+      console.log('stories Items', this.items);
 
     }
   }

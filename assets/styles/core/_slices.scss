@@ -1,0 +1,29 @@
+.component-padding {
+    padding-top: $margin-medium;
+    padding-bottom: $margin-medium;
+
+    @media (min-width: $screen-sm) {
+        padding-top: $margin-large;
+        padding-bottom: $margin-large;
+    }
+
+    @media (min-width: $screen-md) {
+        padding-top: $margin-xlarge;
+        padding-bottom: $margin-xlarge;
+    }
+}
+
+.component-margin {
+    margin-top: $margin-medium;
+    margin-bottom: $margin-medium;
+
+    @media (min-width: $screen-sm) {
+        margin-top: $margin-large;
+        margin-bottom: $margin-large;
+    }
+
+    @media (min-width: $screen-md) {
+        padding-top: $margin-xlarge;
+        padding-bottom: $margin-xlarge;
+    }
+}
