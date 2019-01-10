@@ -1,27 +1,20 @@
 <template>
-  <div class="wrapper">
-    <prismic-preview :documentId="documentId">
-      <hero-video v-if="bannerType === 'video'"
-                  :title="title"
-                  :content="content"
-                  :videoUrl="bannerVideo.url"
-                  :poster="bannerDesktop.url">
-      </hero-video>
-      <hero-banner v-else
-                   :title="title"
-                   :content="content"
-                   :desktopUrl="bannerDesktop.url"
-                   :mobileUrl="bannerMobile.url"
-                   :imageAlt="bannerMobile.alt">
-      </hero-banner>
-      <slice-loader :slices="slices"></slice-loader>
-    </prismic-preview>
-  </div>
+  <core-content
+    :document-id="documentId"
+    :slices="slices"
+    :banner-type="bannerType"
+    :title="title"
+    :content="content"
+    :video-url="videoUrl"
+    :poster="desktopUrl"
+    :desktop-url="desktopUrl"
+    :mobile-url="mobileUrl"
+    :image-alt="imageAlt"
+  ></core-content>
 </template>
 
 <script>
-import HeroBanner from '../components/banners/HeroBanner.vue';
-import HeroVideo from '../components/banners/HeroVideo.vue';
+import CoreContent from "../templates/CoreContent";
 
 export default {
   head () {
@@ -50,8 +43,7 @@ export default {
     }
   },
   components: {
-    HeroBanner,
-    HeroVideo
+    CoreContent
   },
   async asyncData ({ app, params, error, store }) {
     try {
@@ -65,9 +57,10 @@ export default {
         title: data.title,
         content: data.content,
         bannerType: data.banner_type,
-        bannerVideo: data.hero_video,
-        bannerDesktop: data.hero_image,
-        bannerMobile: data.hero_image.mobile,
+        videoUrl: data.hero_video.url,
+        desktopUrl: data.hero_image.url,
+        mobileUrl: data.hero_image.mobile.url,
+        imageAlt: data.hero_image.alt_text,
         slices: data.body
       }
     } catch (err) {
@@ -99,16 +92,4 @@ export default {
 
 <style scoped lang="scss">
 
-  .wrapper {
-    width: 100%;
-  }
-
-
-  .container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
 </style>

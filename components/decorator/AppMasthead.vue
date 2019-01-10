@@ -37,13 +37,13 @@
     width: 100%;
 
     @media (min-width: $screen-sm) {
-      height: $header-height;
+
     }
 
   }
 
   .logo-link {
-    width: 200px;
+    width: 180px;
     display: block;
     margin: 0 auto;
     @media (min-width: $screen-sm) {
@@ -52,7 +52,6 @@
   }
 
   .masthead-content {
-    height: 100%;
 
 
     @media (min-width: $screen-sm) {

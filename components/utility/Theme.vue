@@ -37,7 +37,7 @@
       color: $color-black;
 
       &:hover {
-        background-color: $gray-lightest;
+        background-color: $color-lightest;
       }
     }
   }

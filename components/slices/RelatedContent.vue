@@ -30,7 +30,7 @@
 
   .related-content-item {
     height: 33vw;
-    background: $gray-dark;
+    background: $color-dark;
     width: 50%;
     text-align: center;
   }

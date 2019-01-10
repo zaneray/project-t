@@ -29,7 +29,7 @@ export const actions = {
     if (getters.storyDoc) {
       return getters.storyDoc
     } else {
-      const storyDoc = await this.$prismic.api.getSingle('story', {fetchLinks: ['team_member.name', 'team_member.image', 'team_member.position']})
+      const storyDoc = await this.$prismic.api.getSingle('story_landing', {fetchLinks: ['story.title', 'story.subtitle', 'story.hero_image']})
       commit('SET_STORY_DOC', storyDoc)
       return storyDoc
     }

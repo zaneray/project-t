@@ -161,10 +161,10 @@
     }
 
     .btn-neutral {
-        background-color: $gray;
+        background-color: $color-medium;
 
         &:hover {
-            background-color: darken($gray, 10%);
+            background-color: darken($color-medium, 10%);
         }
     }
 
